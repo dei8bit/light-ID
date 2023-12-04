@@ -363,6 +363,8 @@ Node.js v18.16.1`
 
   + **Comportamiento esperado**: Simplemente queria un ID que tenga los caracteres asdfgh mezclados de forma random.
 
+# DISCLAIMER: 
+*I am NOT a translator, I do not know English and Chinese in depth, but I still tried to force the translation so that at least something exists, I am aware that many of the sentences are going to be wrong. but at least they are there to correct themselves. I apologize, I have a great appreciation for both languages, and it would be a pleasure for me to have translations for the largest languages ​​in the world.* 🙇‍♂️🙇‍♂️
 
 
 ### **EN** 
