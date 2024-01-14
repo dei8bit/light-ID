@@ -46,6 +46,8 @@
 - Comentarios en codigo [⌛]
 - TO-DOS [⌛]
 
+10. Crear una interfaz grafica para crear IDs mediante configuracion accesible [⌛]
+
 🔴**Problematicas:**
 
 ❗ ¿Que ocurre cuando el numero de caracteres de customChars es menor a el largo y la repeticion esta desactivada? ✅
@@ -122,6 +124,9 @@ _I am NOT a translator, I do not know English and Chinese in depth, but I still 
    - Code comments [⌛]
    - TO-DOS [⌛]
 
+10. Create a graphical interface to create IDs through accessible configuration [⌛]
+
+
 🔴**Issues:**
 
 ❗ What happens when the number of characters in customChars is less than the length, and repetition is disabled? ✅
@@ -193,6 +198,8 @@ _I am NOT a translator, I do not know English and Chinese in depth, but I still 
    - 控制台消息 [⌛]
    - 代码注释 [⌛]
    - 待办事项 [⌛]
+
+10. 创建图形界面，通过可访问的配置创建ID [⌛]
 
 🔴**问题：**
 

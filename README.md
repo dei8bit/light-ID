@@ -130,7 +130,7 @@ const [num, low, upp, alfa] = groups;
 > Con el fin de evitar escribir algo tal como {parametro:true} o {parametro:false}, parecia agil poner simplemente {parametro}
 
 > Gracias a la limpieza previa de `customChars` usted puede pasar caracteres en una sola cadena de texto:
-> De esta forma esto: --> `customChars:["1","h","s","♥","2","H","b","$"]` equivale a esto: --> `customChars:[1hs♥2Hb$]`
+> De esta forma esto: --> `customChars:["1","h","s","♥","2","H","b","$"]` equivale a esto: --> `customChars:["1hs♥2Hb$"]`
 > Y con este atajo puede ahorrar mucho tiempo al evitar las comillas ("") y las comas (,)
 
 ##### 📋 Ejemplos de uso con configuración _normal_:
@@ -257,24 +257,14 @@ miniID({customChars:["123456"]}) === miniID({customChars:["1","2","3","4","5","6
 ##### MegaID()
 
 ```javascript
-MegaID() ===
-  MegaID({
-    length: 25,
-    repeat: true,
-    groups: ["alfa"],
-    onlyCustom: false,
-    customChars: [],
-  });
-MegaID({ groups: [num, upp, low, alfa] }) ===
-  MegaID({ groups: ["num", "upp", "low", "alfa"] });
-MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] });
-MegaID({ repeat: true }) === MegaID({ repeat });
-MegaID({ repeat: false }) === MegaID({ repeat: no });
-MegaID({ onlyCustom: true }) === MegaID({ onlyCustom });
-MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) ===
-  MegaID({ customChars: [123456] });
-MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) ===
-  MegaID({ customChars: ["123456"] });
+MegaID() === MegaID({length: 25,repeat: true,groups: ["alfa"],onlyCustom: false,customChars: [],})
+MegaID({ groups: [num, upp, low, alfa] }) === MegaID({ groups: ["num", "upp", "low", "alfa"] })
+MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] })
+MegaID({ repeat: true }) === MegaID({ repeat })
+MegaID({ repeat: false }) === MegaID({ repeat: no })
+MegaID({ onlyCustom: true }) === MegaID({ onlyCustom })
+MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) === MegaID({ customChars: [123456] })
+MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) === MegaID({ customChars: ["123456"] });
 ```
 
 ## 🕵️ Funcionamiento Interno:
@@ -543,7 +533,7 @@ const [num, low, upp, alfa] = groups;
 > To avoid writing something like {parameter: true} or {parameter: false}, it seemed more efficient to simply use {parameter}.
 
 > Thanks to the previous cleaning of `customChars`, you can pass characters in a single string:
-> This way, this: --> `customChars:["1","h","s","♥","2","H","b","$"]` is equivalent to this: --> `customChars:[1hs♥2Hb$]`
+> This way, this: --> `customChars:["1","h","s","♥","2","H","b","$"]` is equivalent to this: --> `customChars:["1hs♥2Hb$"]`
 > And with this shortcut, you can save a lot of time by avoiding quotes ("") and commas (,).
 
 ##### 📋 Examples of usage with _normal_ configuration:
@@ -670,24 +660,14 @@ miniID({customChars:["123456"]}) === miniID({customChars:["1","2","3","4","5","6
 ##### MegaID()
 
 ```javascript
-MegaID() ===
-  MegaID({
-    length: 25,
-    repeat: true,
-    groups: ["alfa"],
-    onlyCustom: false,
-    customChars: [],
-  });
-MegaID({ groups: [num, upp, low, alfa] }) ===
-  MegaID({ groups: ["num", "upp", "low", "alfa"] });
-MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] });
-MegaID({ repeat: true }) === MegaID({ repeat });
-MegaID({ repeat: false }) === MegaID({ repeat: no });
-MegaID({ onlyCustom: true }) === MegaID({ onlyCustom });
-MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) ===
-  MegaID({ customChars: [123456] });
-MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) ===
-  MegaID({ customChars: ["123456"] });
+MegaID() === MegaID({length: 25,repeat: true,groups: ["alfa"],onlyCustom: false,customChars: [],})
+MegaID({ groups: [num, upp, low, alfa] }) === MegaID({ groups: ["num", "upp", "low", "alfa"] })
+MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] })
+MegaID({ repeat: true }) === MegaID({ repeat })
+MegaID({ repeat: false }) === MegaID({ repeat: no })
+MegaID({ onlyCustom: true }) === MegaID({ onlyCustom })
+MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) === MegaID({ customChars: [123456] })
+MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) === MegaID({ customChars: ["123456"] });
 ```
 
 ## 🕵️ Internal Operation:
@@ -951,7 +931,7 @@ const [num, low, upp, alfa] = groups;
 > 为了避免写类似 {parameter: true} 或 {parameter: false} 这样的内容，直接使用 {parameter} 似乎更为高效。
 
 > 由于 `customChars` 的先前清理，您可以将字符传递为一个字符串：
-> 这样，`customChars:["1","h","s","♥","2","H","b","$"]` 等同于 `customChars:[1hs♥2Hb$]`
+> 这样，`customChars:["1","h","s","♥","2","H","b","$"]` 等同于 `customChars:["1hs♥2Hb$"]`
 > 通过这个快捷方式，您可以通过避免引号（""）和逗号（,）来节省大量时间。
 
 ##### 📋 使用 _normal_ 配置的示例：
@@ -1078,24 +1058,14 @@ miniID({customChars:["123456"]}) === miniID({customChars:["1","2","3","4","5","6
 ##### MegaID()
 
 ```javascript
-MegaID() ===
-  MegaID({
-    length: 25,
-    repeat: true,
-    groups: ["alfa"],
-    onlyCustom: false,
-    customChars: [],
-  });
-MegaID({ groups: [num, upp, low, alfa] }) ===
-  MegaID({ groups: ["num", "upp", "low", "alfa"] });
-MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] });
-MegaID({ repeat: true }) === MegaID({ repeat });
-MegaID({ repeat: false }) === MegaID({ repeat: no });
-MegaID({ onlyCustom: true }) === MegaID({ onlyCustom });
-MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) ===
-  MegaID({ customChars: [123456] });
-MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) ===
-  MegaID({ customChars: ["123456"] });
+MegaID() === MegaID({length: 25,repeat: true,groups: ["alfa"],onlyCustom: false,customChars: [],})
+MegaID({ groups: [num, upp, low, alfa] }) === MegaID({ groups: ["num", "upp", "low", "alfa"] })
+MegaID({ groups: [alfa] }) === MegaID({ groups: [num, upp, low] })
+MegaID({ repeat: true }) === MegaID({ repeat })
+MegaID({ repeat: false }) === MegaID({ repeat: no })
+MegaID({ onlyCustom: true }) === MegaID({ onlyCustom })
+MegaID({ customChars: [1, 2, 3, 4, 5, 6] }) === MegaID({ customChars: [123456] })
+MegaID({ customChars: ["1", "2", "3", "4", "5", "6"] }) === MegaID({ customChars: ["123456"] });
 ```
 
 ## 🕵️ 内部操作:
