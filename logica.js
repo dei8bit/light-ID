@@ -193,3 +193,5 @@ Tiene tres soluciones posibles:
   }
   return randomSuperID;
 }
+
+console.log(miniID({length:8,repeat,onlyCustom,low}));
