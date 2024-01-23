@@ -15,7 +15,7 @@
    - Verificar que la informacion sea acorde a los mismos numeros independiente del scope [✅]
    - Error 1: los caracteres custom son menores que la longitud indicada y la repeticion esta desactivada [✅]
 
-5. Crear un comando "help": para que el usuario pueda solicitar informacion por consola sobre la utilizacion del generador. [⌛]
+5. Crear un comando "help": para que el usuario pueda solicitar informacion por consola sobre la utilizacion del generador. [✅]
 
 6. Mejorar y ampliar la configuracion agil [⌛]
 
