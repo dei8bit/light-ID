@@ -46,7 +46,9 @@
 - Comentarios en codigo [⌛]
 - TO-DOS [⌛]
 
-10. Crear una interfaz grafica para crear IDs mediante configuracion accesible [⌛]
+10. Crear una interfaz grafica para generar IDs de forma practica, eficiente y comoda. [⌛]
+
+11. Convertir todo el algoritmo a typescript para mayor seguridad  [⌛]
 
 🔴**Problematicas:**
 

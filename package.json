@@ -1,11 +1,8 @@
 {
-  "name": "quick-id",
+  "name": "fast-id",
   "version": "1.0.0",
   "description": "A simple, fast, and straightforward ID generator",
-  "main": "logica.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "logic.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dei8bit/quick-ID.git"

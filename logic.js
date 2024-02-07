@@ -1,4 +1,4 @@
-//_ Caracteres por defecto:
+//_ Default characters:
 
 const characters = {
   num: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
@@ -8,7 +8,8 @@ const characters = {
 };
 
 
-//_ Constantes para agilizar la configuracion:
+//_ Constants to speed up configuration:
+
 const infoCombinations = true;
 const infoConfig = true;
 const onlyCustom = true;
@@ -19,14 +20,14 @@ const groups = ["num", "low", "upp", "alfa"];
 const [num, low, upp, alfa] = groups;
 
 
-//_ Funciones para obtener informacion:
+//_ Functions to obtain information:
 
 function factorial(n) {
   if (n < 0) {
-    return undefined; // Factorial no definido para números negativos
+    return undefined; // Undefined factorial for negative numbers
   }
   if (n === 0 || n === 1) {
-    return 1n; // 1n representa un BigInt
+    return 1n; // 1n represents a BigInt
   }
   let result = 1n;
   for (let i = 2n; i <= n; i++) {
@@ -35,21 +36,21 @@ function factorial(n) {
   return result;
 }
 
-function getAmmountCombinations(totalChars, length, repeat) { // Obtiene la cantidad de combinaciones posibles dado cierto grupo de caracteres
+function getAmmountCombinations(totalChars, length, repeat) { // Gets the number of possible combinations given a certain group of characters
   const repeatOption = Math.pow(totalChars, length);
   const noRepeatOption = factorial(totalChars) / factorial(totalChars - length);
   const result = repeat ? repeatOption : noRepeatOption;
-  return (`Combinaciones posibles: ${result.toString()}`);
+  return (`Possible combinations  : ${result.toString()}`);
 }
 
-//_ Funciones para generar los ID:
+//_ Functions to generate IDs:
 
-function getRandomItem(arr) { // Obtiene un Item random de un array provisto
+function getRandomItem(arr) { // Gets a random Item from a provided array
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
-function generateDefaultID(chars) { // Genera un ID por Default para casos de error
+function generateDefaultID(chars) { // Generates a Default ID for error cases
   let defaultID = "";
   for (let i = 0; i < 5; i++) {
     defaultID += getRandomItem(chars);
@@ -59,6 +60,7 @@ function generateDefaultID(chars) { // Genera un ID por Default para casos de er
 
 
 //_  HELP FUNCTIONS:
+//+ Funiones que permiten corroborar como funcionan los generadores de IDs
 
 function data(tipo, utilidad, defaultValue, posibilidades) {
   this.tipo = tipo;
