@@ -301,3 +301,7 @@ It has three possible solutions:
   }
   return randomSuperID;
 }
+
+
+
+module.exports = { miniID, MegaID };
