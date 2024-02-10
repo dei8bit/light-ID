@@ -60,26 +60,26 @@ function generateDefaultID(chars) { // Generates a Default ID for error cases
 
 
 //_  HELP FUNCTIONS:
-//+ Funiones que permiten corroborar como funcionan los generadores de IDs
+//+ functions that allow you to check how ID generators work
 
-function data(tipo, utilidad, defaultValue, posibilidades) {
-  this.tipo = tipo;
-  this.utilidad = utilidad;
+function data(type, utility, defaultValue, options) {
+  this.type = type;
+  this.utility = utility;
   this.defaultValue = defaultValue;
-  this.posibilidades = posibilidades;
+  this.options = options;
 }
 
 
 function miniIDHelp(option) {
   const setting = {};
 
-  setting.length = new data("number", "¿longitud del ID?", "5", "numeros del 3 al 9");
-  setting.repeat = new data("boolean", "¿Caracteres repetidos o no?", "false", "true o false");
-  setting.infoCombinations = new data("boolean", "Cantidad de combinaciones posibles", "false", "true o false");
-  setting.infoConfig = new data("boolean", "Configuracion elegida", "false", "true o false");
-  setting.onlyCustom = new data("boolean", "¿solo caracteres custom?", "false", "true o false");
-  setting.groups = new data("array", "¿que grupos de caracteres?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
-  setting.customChars = new data("array", "¿que caracteres custom?", "[]", "[cualquier caracter]");
+  setting.length = new data("number", "lenght ID?", "5", "numbers from 3 to 9");
+  setting.repeat = new data("boolean", "¿Repeated characters or not?", "false", "true or false");
+  setting.infoCombinations = new data("boolean", "Number of possible combinations", "false", "true or false");
+  setting.infoConfig = new data("boolean", "Chosen configuration", "false", "true or false");
+  setting.onlyCustom = new data("boolean", "¿only custom characters?", "false", "true or false");
+  setting.groups = new data("array", "¿what character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
+  setting.customChars = new data("array", "¿what custom characters?", "[]", "[any character]");
 
   switch (option) {
     case "length":
@@ -99,11 +99,11 @@ function miniIDHelp(option) {
       break;
 
     default:
-      console.log("Bienvenido a Quick-ID un generador de IDs, simple, versatil y practico")
-      console.info("miniID()--> Genera IDs Pequeños en un rango de [3 a 9] caracteres de longitud.")
-      console.info("↓↓↓↓ Tiene los siguientes parametros de configuracion posibles ↓↓↓↓")
+      console.log("Welcome to light-ID, a simple, versatile and practical ID generator")
+      console.info("miniID()--> Generates mini IDs in a range of [3 to 9] characters in length.")
+      console.info("↓↓↓↓ It has the following possible configuration parameters ↓↓↓↓")
       console.table(setting);
-      console.info("si desea conocer especificamente como funciona un parametro escriba help 'parametro' ")
+      console.info("If you want to know specifically how a parameter works, write help 'parameter' ")
       break;
   }
 }
@@ -111,11 +111,12 @@ function miniIDHelp(option) {
 function MegaIDHelp(option) {
   const setting = {};
 
-  setting.length = new data("number", "¿longitud del ID?", "25", "numeros del 3 al 10000");
-  setting.repeat = new data("boolean", "¿Caracteres repetidos o no?", "false", "true o false");
-  setting.onlyCustom = new data("boolean", "¿solo caracteres custom?", "false", "true o false");
-  setting.groups = new data("array", "¿que grupos de caracteres?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
-  setting.customChars = new data("array", "¿que caracteres custom?", "[]", "[cualquier caracter]");
+  setting.length = new data("number", "lenght ID?", "25", "numbers from 3 to 10000");
+  setting.repeat = new data("boolean", "¿Repeated characters or not?", "false", "true or false");
+  setting.onlyCustom = new data("boolean", "¿only custom characters?", "false", "true or false");
+  setting.groups = new data("array", "¿what character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
+  setting.customChars = new data("array", "¿what custom characters?", "[]", "[any character]");
+
   switch (option) {
     case "length":
       console.log("case length");
@@ -134,11 +135,11 @@ function MegaIDHelp(option) {
       break;
 
     default:
-      console.log("Bienvenido a Quick-ID un generador de IDs, simple, versatil y practico")
-      console.info("MegaID()--> Genera IDs Grandes en un rango de [3 a 10000] caracteres de longitud.")
-      console.info("↓↓↓↓ Tiene los siguientes parametros de configuracion posibles ↓↓↓↓")
+      console.log("Welcome to light-ID, a simple, versatile and practical ID generator")
+      console.info("miniID()--> Generates mini IDs in a range of [3 to 10000] characters in length.")
+      console.info("↓↓↓↓ It has the following possible configuration parameters ↓↓↓↓")
       console.table(setting);
-      console.info("si desea conocer especificamente como funciona un parametro escriba help 'parametro' ")
+      console.info("If you want to know specifically how a parameter works, write help 'parameter' ")
       break;
   }
 }
@@ -156,58 +157,56 @@ function miniID({
   customChars = [],
   help = { 'solicitado': false, 'option': "" },
 } = {}) {
-  const limit = Math.min(Math.max(length, 3), 9); // Establece un rango de 3 a 9
+  const limit = Math.min(Math.max(length, 3), 9); // Set a range from 3 to 9
   const customCharsClean = []
 
   customChars.forEach((item) => {
-    if (item.length > 1 || item > 9) { // si el item de customChars es un numero o una cadena de mas de dos cifras, se separa en caracteres individuales.
-      customCharsClean.push(...item.toString()); // todos los caracteres se convierten a string
+    if (item.length > 1 || item > 9) { // If the customChars item is a number or a string of more than two digits, it is separated into individual characters.
+      customCharsClean.push(...item.toString()); // all characters are converted to string
     } else {
-      customCharsClean.push(item.toString()); // todos los caracteres se convierten a string
+      customCharsClean.push(item.toString()); // all characters are converted to string
     }
   });
 
   const chars = new Set(groups.reduce((acc, group) => acc.concat(characters[group] || []), []).concat(customCharsClean));
-  const totalChars = chars.size; // obtiene el número de elementos únicos (62 por default)
-  const amountCombinations = getAmmountCombinations(totalChars, limit, repeat); // asigna la cantidad de combinaciones segun la configuracion
-  const DefaultID = generateDefaultID(characters[alfa]) // asigna un ID por defecto en caso de errores
-  const customCharsSet = new Set(customCharsClean); // crea un conjunto de caracteres custom para eliminar concurrencias multiples
-  let setToArray = Array.from(chars); //  crea un array inicial con todos los caracteres disponibles acorde a la configuracion actual.
+  const totalChars = chars.size; // gets the number of unique elements (62 by default)
+  const amountCombinations = getAmmountCombinations(totalChars, limit, repeat); // assigns the number of combinations according to the configuration
+  const DefaultID = generateDefaultID(characters[alfa]) // assigns a default ID in case of errors
+  const customCharsSet = new Set(customCharsClean); // create a custom character set to eliminate duplicate values
+  let setToArray = Array.from(chars); //  creates an initial array with all available characters according to the current configuration.
 
   if (help) {
-
     miniIDHelp()
-
     return " "
   }
 
   if (onlyCustom) {
     setToArray = Array.from(customCharsSet);
     if (customChars.length === 0) {
-      console.warn("Incompatible: debe proporcionarse un grupo de caracteres custom, para poder usar la opcion {onlyCustom}")
-      console.info(`EXPLICACION: Usted selecciono la opcion onlycustom, la cual indica que el generador de IDs trabajara solo con los caracteres que proporcione.
-    sin embargo no ha proporcionado ningun caracter en only custom
+      console.warn("Incompatible: A custom character set must be provided in order to use the {onlyCustom} option.")
+      console.info(`EXPLANATION: You selected the onlycustom option, which indicates that the ID generator will work only with the characters you provide.
+      but instead you have not provided any character in only custom
     `)
-      console.log(`Se le brindara un ID por default --> ${DefaultID}`);
+      console.log(`You will be given a default ID --> ${DefaultID}`);
       return "";
     }
 
     if (setToArray.length > 0 && !repeat && setToArray.length < length) {
-      console.warn("Operación no válida: la longitud de customChars debe ser al menos igual al número total de caracteres únicos requeridos para la generación del ID cuando la repetición está desactivada.");
+      console.warn("Invalid operation: The length of customChars must be at least equal to the total number of unique characters required for ID generation when repetition is disabled.");
       console.info(`
-EXPLICACION: 
-      Usted Proporciono estos caracteres: |${setToArray}|
-      en total: |${setToArray.length}|
-      sin embargo esta especificado un largo total de: |${length}| 
-      y la repeticion esta: |desactivada| 
-      Por ende los caracteres nunca alcanzan la longitud establecida, puesto que no se pueden repetir y son menos que el largo establecido.
+EXPLANATION: 
+      You Provided These Characters: |${setToArray}|
+      with a length of: |${setToArray.length}|
+      However, a total length of: |${length}| 
+      and the repat option is set in: false => |disabled| 
+      Therefore the characters never reach the established length, since they cannot be repeated and are less than the established length.
 
-Tiene tres soluciones posibles:
-    1.- Aumente la cantidad de caracteres hasta que sea igual o mayor que la longitud configurada
-    2.- Disminuya la longitud configurada hasta que sea igual o menor que la cantidad de caracteres
-    3.- Active la repeticion.
+It has three possible solutions:
+    1.- Increase the number of characters until it is equal to or greater than the configured length.
+    2.- Decrease the configured length until it is equal to or less than the number of characters.
+    3.- set de repeat opion in true.
 `);
-      console.log(`Se le brindara un ID por default --> ${DefaultID}`);
+      console.log(`You will be given a default ID --> ${DefaultID}`);
       return "";
     }
   } else {
@@ -216,19 +215,19 @@ Tiene tres soluciones posibles:
 
 
 
-  if (infoCombinations) { console.log(amountCombinations) } // devuelve las combinaciones posibles si se solicitan
+  if (infoCombinations) { console.log(amountCombinations) } // returns possible combinations if requested
 
-  if (infoConfig) {  // devuelve la informacion de configuracion si se solicita
-    console.log(`largo del ID ${limit}`);
-    repeat ? console.log(`La repeticion esta activada`) : console.log(`La repeticion esta desactivada`)
+  if (infoConfig) {  // returns configuration information if requested
+    console.log(`lenght ID ${limit}`);
+    repeat ? console.log(`repeat is active`) : console.log(`repeat is not active`)
     if (onlyCustom) {
-      customCharsClean.length > 0 ? console.log(`los caracteres usados son ${setToArray}`) : "";
-      console.log(`Cantidad de Caracteres Custom: ${customCharsClean.length} `);
+      customCharsClean.length > 0 ? console.log(`the characters used are ${setToArray}`) : "";
+      console.log(`number of custom chars: ${customCharsClean.length} `);
     }
-    else { customCharsClean.length > 0 ? console.log(`los caracteres usados son ${setToArray} mas ${groups}`) : console.log(`los caracteres usados son ${groups}`); }
+    else { customCharsClean.length > 0 ? console.log(`chars used  are: ${setToArray} and also ${groups}`) : console.log(`chars used  are: ${groups}`); }
   }
 
-  let randomMiniID = ""; // esta variable se llena en cada iteracion del bucle , si es que no hay errores previos.
+  let randomMiniID = ""; // This variable is filled in each iteration of the loop, if there are no previous errors.
 
   while (randomMiniID.length < limit) {
     const randomChar = getRandomItem(setToArray)
@@ -251,49 +250,49 @@ function MegaID({
   groups = ["alfa"],
   customChars = [],
 } = {}) {
-  const limit = Math.min(Math.max(length, 3), 10000); // Establece un rango de 3 a 10000
+  const limit = Math.min(Math.max(length, 3), 10000); // Set a range from 3 to 10000
 
   const customCharsClean = []
 
   customChars.forEach((item) => {
-    if (item.length > 1 || item > 9) { // si el item de customChars es un numero o una cadena de mas de dos cifras, se separa en caracteres individuales.
-      customCharsClean.push(...item.toString()); // todos los caracteres se convierten a string
+    if (item.length > 1 || item > 9) { // If the customChars item is a number or a string of more than two digits, it is separated into individual characters.
+      customCharsClean.push(...item.toString()); // all characters are converted to string
     } else {
-      customCharsClean.push(item.toString()); // todos los caracteres se convierten a string
+      customCharsClean.push(item.toString());    // all characters are converted to string
     }
   });
 
   const chars = new Set(groups.reduce((acc, group) => acc.concat(characters[group] || []), []).concat(customCharsClean));
-  const DefaultID = generateDefaultID(characters[alfa]) // asigna un ID por defecto en caso de errores
-  const customCharsSet = new Set(customCharsClean); // crea un conjunto de caracteres custom para eliminar concurrencias multiples
+  const DefaultID = generateDefaultID(characters[alfa]) // assigns a default ID in case of errors
+  const customCharsSet = new Set(customCharsClean);     // create a custom character set to eliminate duplicate values
   setToArray = Array.from(chars)
 
   if (onlyCustom) { setToArray = Array.from(customCharsSet) }
   else { setToArray = Array.from(chars) }
 
   if (setToArray.length > 0 && !repeat && setToArray.length < length) {
-    console.warn("Operación no válida: la cantidad de caracteres disponibles para genera el ID debe ser al menos igual a la longitud establecida para la generación del ID cuando la repetición está desactivada.");
+    console.warn("Invalid operation: The length of customChars must be at least equal to the total number of unique characters required for ID generation when repetition is disabled.");
     console.info(`
-EXPLICACION: 
-    Usted Proporciono estos caracteres: |${setToArray}|
-    en total: |${setToArray.length}|
-    sin embargo esta especificado un largo total de: |${length}| 
-    y la repeticion esta: |desactivada| 
-    Por ende los caracteres nunca alcanzan la longitud establecida, puesto que no se pueden repetir y son menos que el largo establecido.
+    EXPLANATION: 
+    You Provided These Characters: |${setToArray}|
+    with a length of: |${setToArray.length}|
+    However, a total length of: |${length}| 
+    and the repat option is set in: false => |disabled| 
+    Therefore the characters never reach the established length, since they cannot be repeated and are less than the established length.
 
-Tiene tres soluciones posibles:
-    1.- Aumente la cantidad de caracteres hasta que sea igual o mayor que la longitud configurada
-    2.- Disminuya la longitud configurada hasta que sea igual o menor que la cantidad de caracteres
-    3.- Active la repeticion.
+It has three possible solutions:
+  1.- Increase the number of characters until it is equal to or greater than the configured length.
+  2.- Decrease the configured length until it is equal to or less than the number of characters.
+  3.- set de repeat opion in true.
 `);
-    console.log(`Se le brindara un ID por default --> ${DefaultID}`);
+    console.log(`You will be given a default ID --> --> ${DefaultID}`);
     return DefaultID;
   }
 
   if (onlyCustom) { setToArray = Array.from(customCharsSet) }
   else { setToArray = Array.from(chars) }
 
-  let randomSuperID = ""; // esta variable se llena en cada iteracion del bucle , si es que no hay errores previos.
+  let randomSuperID = ""; // This variable is filled in each iteration of the loop, if there are no previous errors.
 
   while (randomSuperID.length < limit) {
     const randomChar = getRandomItem(setToArray)

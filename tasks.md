@@ -50,6 +50,10 @@
 
 11. Convertir todo el algoritmo a typescript para mayor seguridad  [⌛]
 
+12. Agregar un set que permita acumular los IDs creados con una configuracion especifica,  pudiendo asi evitar duplicaciones   [⌛]
+
+13. definir tests para todos y cada uno de los algoritmos [⌛]
+
 🔴**Problematicas:**
 
 ❗ ¿Que ocurre cuando el numero de caracteres de customChars es menor a el largo y la repeticion esta desactivada? ✅

@@ -1,11 +1,11 @@
 {
-  "name": "fast-id",
+  "name": "light-id",
   "version": "1.0.0",
   "description": "A simple, fast, and straightforward ID generator",
   "main": "logic.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dei8bit/quick-ID.git"
+    "url": "https://github.com/dei8bit/light-ID"
   },
   "keywords": [
     "ID",
@@ -13,6 +13,7 @@
     "Fast",
     "Quick",
     "simple",
+    "lightweight",
     "versatile",
     "useful",
     "vanillajs",
@@ -23,7 +24,10 @@
   "author": "dei8bit",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dei8bit/quick-ID/issues"
+    "url": "https://github.com/dei8bit/light-ID/issues"
   },
-  "homepage": "https://github.com/dei8bit/quick-ID#readme"
+  "homepage": "https://github.com/dei8bit/light-ID#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
