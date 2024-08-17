@@ -59,6 +59,9 @@
 
 16. Mejorar la estructura de este archivo probablemente moviendolo a github projects o catalogando las tareas de forma practica y legible divididas en "completed" y "upcoming"[⌛]
 
+16. Crear la opcion de incluir un caracter especial cada tantos caracteres como un guion "-" cada tres o un dolar "$" cada 5 , o elegir un patron de saltos y caracteres:
+   por ejemplo: 3,2,1 "-" "-" "$"  resultando en: vS2-1h-1$[⌛]
+
 
 🔴**Problematicas:**
 

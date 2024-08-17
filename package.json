@@ -1,13 +1,13 @@
 {
   "name": "light-id",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "A simple, fast, and straightforward ID generator",
   "files": [
-    "logic.js",
+    "logic.mjs",
     "package.json"
   ],
-  "main": "logic.js",
+  "main": "logic.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/dei8bit/light-ID"
