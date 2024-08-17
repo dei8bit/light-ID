@@ -21,23 +21,22 @@
 
 7. Hacer que quick-id sea un paquete para:
 
-- npm [⌛]
+- npm [✅]
 - pnpm [⌛]
 - yarn [⌛]
 
 8. Crear un extension de VScode para generar IDs con quick-id: [⌛]
-
-- Configuracion en JSON: [⌛]
-- Un solo comando para generar ID en linea: [⌛]
-- Un solo comando para generar varios ID en serie con la misma configuracion: [⌛]
-- Un solo comando para generar varios ID en serie con diferentes configuraciones: [⌛]
-- snippets para diferentes formas de generar IDs: (ACTIVADOS o DESACTIVADOS en JSON): [⌛]
-  •idnew: ID por default: [⌛]
-  •idlow: ID lowercase: [⌛]
-  •idupp: ID uppercase: [⌛]
-  •idnum: ID numerico: [⌛]  
-  •idmax:ID con la mayor complejidad posible: [⌛]
-  •idmin:ID con la menor complejidad posible: [⌛]
+   - Configuracion en JSON: [⌛]
+   - Un solo comando para generar ID en linea: [⌛]
+   - Un solo comando para generar varios ID en serie con la misma configuracion: [⌛]
+   - Un solo comando para generar varios ID en serie con diferentes configuraciones: [⌛]
+   - snippets para diferentes formas de generar IDs: (ACTIVADOS o DESACTIVADOS en JSON): [⌛]
+      •idnew: ID por default: [⌛]
+      •idlow: ID lowercase: [⌛]
+      •idupp: ID uppercase: [⌛]
+      •idnum: ID numerico: [⌛]  
+      •idmax:ID con la mayor complejidad posible: [⌛]
+      •idmin:ID con la menor complejidad posible: [⌛]
 
 9. Traducir correctamente al INGLES y CHINO:
 
@@ -53,6 +52,13 @@
 12. Agregar un set que permita acumular los IDs creados con una configuracion especifica,  pudiendo asi evitar duplicaciones   [⌛]
 
 13. definir tests para todos y cada uno de los algoritmos [⌛]
+
+14. opcion para acumular todos los IDS generados en un array, para una doble comprobacion de duplicados [⌛]
+
+15. Crear un CLI de ayuda mas amigable e intuitivo que este separado de las funciones  miniID y MegaID [⌛]
+
+16. Mejorar la estructura de este archivo probablemente moviendolo a github projects o catalogando las tareas de forma practica y legible divididas en "completed" y "upcoming"[⌛]
+
 
 🔴**Problematicas:**
 

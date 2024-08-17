@@ -69,7 +69,6 @@ function data(type, utility, defaultValue, options) {
   this.options = options;
 }
 
-
 function miniIDHelp(option) {
   const setting = {};
 
@@ -239,8 +238,6 @@ It has three possible solutions:
 }
 
 
-console.log(miniID({ help }));
-
 //# MEGAID
 
 function MegaID({
@@ -304,4 +301,6 @@ It has three possible solutions:
 
 
 
-module.exports = { miniID, MegaID };
+export { miniID, MegaID };
+
+
