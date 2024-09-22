@@ -24,8 +24,9 @@
 - npm [✅]
 - pnpm [⌛]
 - yarn [⌛]
+- bun [⌛]
 
-8. Crear un extension de VScode para generar IDs con quick-id: [⌛]
+8. Crear una extension de VScode para generar IDs con quick-id: [⌛]
    - Configuracion en JSON: [⌛]
    - Un solo comando para generar ID en linea: [⌛]
    - Un solo comando para generar varios ID en serie con la misma configuracion: [⌛]
@@ -49,15 +50,13 @@
 
 11. Convertir todo el algoritmo a typescript para mayor seguridad  [⌛]
 
-12. Agregar un set que permita acumular los IDs creados con una configuracion especifica,  pudiendo asi evitar duplicaciones   [⌛]
+12. Agregar una configuracion especifica que genere un set que acumula  un historial con todos los IDs creados ,  pudiendo asi evitar duplicaciones [⌛]
 
 13. definir tests para todos y cada uno de los algoritmos [⌛]
 
-14. opcion para acumular todos los IDS generados en un array, para una doble comprobacion de duplicados [⌛]
+14. Crear un CLI de ayuda mas amigable e intuitivo que este separado de las funciones  miniID y MegaID [⌛]
 
-15. Crear un CLI de ayuda mas amigable e intuitivo que este separado de las funciones  miniID y MegaID [⌛]
-
-16. Mejorar la estructura de este archivo probablemente moviendolo a github projects o catalogando las tareas de forma practica y legible divididas en "completed" y "upcoming"[⌛]
+15. Mejorar la estructura de este archivo probablemente moviendolo a github projects o catalogando las tareas de forma practica y legible divididas en "completed" y "upcoming"[⌛]
 
 16. Crear la opcion de incluir un caracter especial cada tantos caracteres como un guion "-" cada tres o un dolar "$" cada 5 , o elegir un patron de saltos y caracteres:
    por ejemplo: 3,2,1 "-" "-" "$"  resultando en: vS2-1h-1$[⌛]
