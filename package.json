@@ -1,6 +1,6 @@
 {
   "name": "light-id",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "A simple, fast, and straightforward ID generator",
   "files": [
