@@ -154,8 +154,12 @@ function miniID({
   onlyCustom = false,
   groups = ["alfa"],
   customChars = [],
-  help = { 'solicitado': false, 'option': "" },
-} = {}) {
+  help = { 'solicitado': false, 'option': "" }
+
+  } = {}) 
+  
+  
+  {
   const limit = Math.min(Math.max(length, 3), 9); // Set a range from 3 to 9
   const customCharsClean = []
 
@@ -174,9 +178,9 @@ function miniID({
   const customCharsSet = new Set(customCharsClean); // create a custom character set to eliminate duplicate values
   let setToArray = Array.from(chars); //  creates an initial array with all available characters according to the current configuration.
 
-  if (help) {
-    miniIDHelp()
-    return " "
+  if (help.solicitado) {
+    miniIDHelp(help.option)
+    return  " "
   }
 
   if (onlyCustom) {
@@ -213,7 +217,6 @@ It has three possible solutions:
   }
 
 
-
   if (infoCombinations) { console.log(amountCombinations) } // returns possible combinations if requested
 
   if (infoConfig) {  // returns configuration information if requested
@@ -236,7 +239,6 @@ It has three possible solutions:
   return randomMiniID;
 
 }
-
 
 //# MEGAID
 
@@ -302,5 +304,3 @@ It has three possible solutions:
 
 
 export { miniID, MegaID };
-
-
