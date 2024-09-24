@@ -13,11 +13,54 @@ const characters = {
 const infoCombinations = true;
 const infoConfig = true;
 const onlyCustom = true;
-const help = true;
 const repeat = true;
-const no = false;
+const no = false; 
+const help = " "; 
+
+const options = [{help:"length"}, {help:"repeat"}, {help:"onlyCustom"}, {help:"groups"}, {help:"customChars"},{help:"infoConfig"},{help:"infoCombinations"}]; 
+const [lengthInfo, repeatInfo, onlyCustomInfo, groupsInfo, customCharsInfo,configInfo,combinationsInfo] = options ;
+
 const groups = ["num", "low", "upp", "alfa"];
 const [num, low, upp, alfa] = groups;
+
+
+
+//_ Informative Messagges Reusables:
+
+const msgLengthMini = `➤ **length**: Set the ID length (3-9)
+⦿ Default: 5 → ID with 5 characters
+🛠️ Example: miniID({length: 7}) // 7 characters`;
+
+const msgLengthMega = `➤ **length**: Set the ID length (3-10000)
+⦿ Default: 25 → ID with 25 characters
+🛠️ Example: MegaID({length: 100}) // 100 characters`;
+
+const msgRepeat = `➤ **repeat**: Allow repeated characters
+⦿ Default: false → No repeated characters
+🛠️ Example: miniID({repeat: true}) // Allow repeats`;
+
+const msgOnlyCustom = `➤ **onlyCustom**: Use only custom characters
+⦿ Default: false → Adds custom to existing chars
+🛠️ Example: miniID({onlyCustom: true}) // Only custom chars`;
+
+const msgGroups = `➤ **groups**: Define character groups (num, low, upp, alfa)
+⦿ Default: ["alfa"] → Numbers, lower & uppercase
+🛠️ Example: miniID({groups: ["num", "low"]}) // Numbers + lowercase`;
+
+const msgCustomChars = `➤ **customChars**: Use custom characters
+⦿ Default: [] → No custom characters
+🛠️ Example: miniID({customChars: ["A", "B", "C"]}) // Use custom chars`;
+
+const msgInfoCombinations = `➤ **infoCombinations**: Approximate ID combinations
+⦿ Default: false → Not shown
+🛠️ Example: miniID({infoCombinations: true}) // Show combinations
+⚠️ This is an approximation`;
+
+const msgInfoConfig = `➤ **infoConfig**: Show current config
+⦿ Default: false → Not shown
+🛠️ Example: miniID({infoConfig: true}) // Show config`;
+
+
 
 
 //_ Functions to obtain information:
@@ -62,47 +105,56 @@ function generateDefaultID(chars) { // Generates a Default ID for error cases
 //_  HELP FUNCTIONS:
 //+ functions that allow you to check how ID generators work
 
-function data(type, utility, defaultValue, options) {
+function dataTable(type, utility, defaultValue, options) {
+
+  //$  Columns Table:
+
   this.type = type;
-  this.utility = utility;
-  this.defaultValue = defaultValue;
-  this.options = options;
+  this.utility = utility; 
+  this.defaultValue = defaultValue; 
+  this.options = options; 
 }
+
 
 function miniIDHelp(option) {
   const setting = {};
 
-  setting.length = new data("number", "lenght ID?", "5", "numbers from 3 to 9");
-  setting.repeat = new data("boolean", "¿Repeated characters or not?", "false", "true or false");
-  setting.infoCombinations = new data("boolean", "Number of possible combinations", "false", "true or false");
-  setting.infoConfig = new data("boolean", "Chosen configuration", "false", "true or false");
-  setting.onlyCustom = new data("boolean", "¿only custom characters?", "false", "true or false");
-  setting.groups = new data("array", "¿what character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
-  setting.customChars = new data("array", "¿what custom characters?", "[]", "[any character]");
+  setting.length = new dataTable("number", "ID length?", "5", "Between 3-9");
+  setting.repeat = new dataTable("boolean", "Repeated characters?", "false", "true/false");
+  setting.onlyCustom = new dataTable("boolean", "Only custom chars?", "false", "true/false");
+  setting.groups = new dataTable("array", "Character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
+  setting.customChars = new dataTable("array", "Custom characters?", "[]", "[any character]");
+  setting.infoCombinations = new dataTable("boolean", "Show ID combinations?", "false", "true/false");
+  setting.infoConfig = new dataTable("boolean", "Show config info?", "false", "true/false");
 
   switch (option) {
     case "length":
-      console.log("case length");
+      console.info(msgLengthMini);
       break;
     case "repeat":
-      console.log("case repeat");
+      console.info(msgRepeat);
       break;
     case "onlyCustom":
-      console.log("case onlyCustom");
+      console.info(msgOnlyCustom);
       break;
     case "groups":
-      console.log("case groups");
+      console.info(msgGroups);
       break;
     case "customChars":
-      console.log("case customChars");
+      console.info(msgCustomChars);
       break;
-
+    case "infoCombinations":
+      console.info(msgInfoCombinations);
+      break;
+    case "infoConfig":
+      console.info(msgInfoConfig);
+      break;
     default:
-      console.log("Welcome to light-ID, a simple, versatile and practical ID generator")
-      console.info("miniID()--> Generates mini IDs in a range of [3 to 9] characters in length.")
-      console.info("↓↓↓↓ It has the following possible configuration parameters ↓↓↓↓")
+      console.log("Welcome to miniID, a simple, versatile ID generator.");
+      console.info("miniID() → Generates IDs of 3 to 9 characters.");
+      console.info("Configuration options:");
       console.table(setting);
-      console.info("If you want to know specifically how a parameter works, write help 'parameter' ")
+      console.log("To learn more about a parameter, use miniID({help: 'parameter'})");
       break;
   }
 }
@@ -110,35 +162,38 @@ function miniIDHelp(option) {
 function MegaIDHelp(option) {
   const setting = {};
 
-  setting.length = new data("number", "lenght ID?", "25", "numbers from 3 to 10000");
-  setting.repeat = new data("boolean", "¿Repeated characters or not?", "false", "true or false");
-  setting.onlyCustom = new data("boolean", "¿only custom characters?", "false", "true or false");
-  setting.groups = new data("array", "¿what character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
-  setting.customChars = new data("array", "¿what custom characters?", "[]", "[any character]");
+  setting.length = new dataTable("number", "ID length?", "25", "Between 3-10000");
+  setting.repeat = new dataTable("boolean", "Repeated characters?", "false", "true/false");
+  setting.onlyCustom = new dataTable("boolean", "Only custom chars?", "false", "true/false");
+  setting.groups = new dataTable("array", "Character groups?", `["alfa"]`, `["num", "low", "upp","alfa"]`);
+  setting.customChars = new dataTable("array", "Custom characters?", "[]", "[any character]");
+  setting.infoConfig = new dataTable("boolean", "Show config info?", "false", "true/false");
 
   switch (option) {
     case "length":
-      console.log("case length");
+      console.info(msgLengthMega);
       break;
-    case "repeat":
-      console.log("case repeat");
-      break;
-    case "onlyCustom":
-      console.log("case onlyCustom");
-      break;
-    case "groups":
-      console.log("case groups");
-      break;
-    case "customChars":
-      console.log("case customChars");
-      break;
-
+      case "repeat":
+        console.info(msgRepeat);
+        break;
+      case "onlyCustom":
+        console.info(msgRepeat);
+        break;
+      case "groups":
+        console.info(msgGroups);
+        break;
+      case "customChars":
+        console.info(msgCustomChars);
+        break;
+      case "infoConfig":
+        console.info(msgInfoConfig);
+        break;
     default:
-      console.log("Welcome to light-ID, a simple, versatile and practical ID generator")
-      console.info("miniID()--> Generates mini IDs in a range of [3 to 10000] characters in length.")
-      console.info("↓↓↓↓ It has the following possible configuration parameters ↓↓↓↓")
+      console.log("Welcome to MegaID, an advanced and versatile ID generator.");
+      console.info("MegaID() → Generates IDs of 3 to 10,000 characters.");
+      console.info("Configuration options:");
       console.table(setting);
-      console.info("If you want to know specifically how a parameter works, write help 'parameter' ")
+      console.log("To learn more about a parameter, use MegaID({help: 'parameter'})");
       break;
   }
 }
@@ -149,18 +204,19 @@ function MegaIDHelp(option) {
 function miniID({
   length = 5,
   repeat = false,
+  customChars = [],
+  groups = ["alfa"],
+  onlyCustom = false,
   infoCombinations = false,
   infoConfig = false,
-  onlyCustom = false,
-  groups = ["alfa"],
-  customChars = [],
-  help = { 'solicitado': false, 'option': "" }
+  help = false
 
   } = {}) 
   
   
   {
   const limit = Math.min(Math.max(length, 3), 9); // Set a range from 3 to 9
+
   const customCharsClean = []
 
   customChars.forEach((item) => {
@@ -178,9 +234,15 @@ function miniID({
   const customCharsSet = new Set(customCharsClean); // create a custom character set to eliminate duplicate values
   let setToArray = Array.from(chars); //  creates an initial array with all available characters according to the current configuration.
 
-  if (help.solicitado) {
-    miniIDHelp(help.option)
-    return  " "
+
+  if (typeof help === "string") {
+    // Si `help` es un string, llamamos a la función de ayuda con la opción
+    miniIDHelp(help);
+    return; // Salimos de la función para no continuar con la generación de IDs
+  } else if (help) {
+    // En caso de que el valor de help no sea false, pero tampoco un string válido
+    console.error("Invalid help option");
+    return;
   }
 
   if (onlyCustom) {
@@ -199,8 +261,8 @@ function miniID({
       console.info(`
 EXPLANATION: 
       You Provided These Characters: |${setToArray}|
-      with a length of: |${setToArray.length}|
-      However, a total length of: |${length}| 
+      with a total length of: |${setToArray.length}|
+      but you demanded an ID with length of: |${length}| 
       and the repat option is set in: false => |disabled| 
       Therefore the characters never reach the established length, since they cannot be repeated and are less than the established length.
 
@@ -215,7 +277,6 @@ It has three possible solutions:
   } else {
     setToArray = Array.from(chars);
   }
-
 
   if (infoCombinations) { console.log(amountCombinations) } // returns possible combinations if requested
 
@@ -240,15 +301,22 @@ It has three possible solutions:
 
 }
 
+
 //# MEGAID
 
 function MegaID({
   length = 25,
   repeat = true,
-  onlyCustom = false,
-  groups = ["alfa"],
   customChars = [],
+  groups = ["alfa"],
+  onlyCustom = false,
+  infoConfig = false,
+  help = false
+
+  
 } = {}) {
+
+  
   const limit = Math.min(Math.max(length, 3), 10000); // Set a range from 3 to 10000
 
   const customCharsClean = []
@@ -261,10 +329,11 @@ function MegaID({
     }
   });
 
+
   const chars = new Set(groups.reduce((acc, group) => acc.concat(characters[group] || []), []).concat(customCharsClean));
   const DefaultID = generateDefaultID(characters[alfa]) // assigns a default ID in case of errors
   const customCharsSet = new Set(customCharsClean);     // create a custom character set to eliminate duplicate values
-  setToArray = Array.from(chars)
+  let setToArray = Array.from(chars)
 
   if (onlyCustom) { setToArray = Array.from(customCharsSet) }
   else { setToArray = Array.from(chars) }
@@ -291,6 +360,17 @@ It has three possible solutions:
   if (onlyCustom) { setToArray = Array.from(customCharsSet) }
   else { setToArray = Array.from(chars) }
 
+  if (infoConfig) {  // returns configuration information if requested
+    console.log(`lenght ID ${limit}`);
+    repeat ? console.log(`repeat is active`) : console.log(`repeat is not active`)
+    if (onlyCustom) {
+      customCharsClean.length > 0 ? console.log(`the characters used are ${setToArray}`) : "";
+      console.log(`number of custom chars: ${customCharsClean.length} `);
+    }
+    else { customCharsClean.length > 0 ? console.log(`chars used  are: ${setToArray} and also ${groups}`) : console.log(`chars used  are: ${groups}`); }
+  }
+
+
   let randomSuperID = ""; // This variable is filled in each iteration of the loop, if there are no previous errors.
 
   while (randomSuperID.length < limit) {
@@ -302,5 +382,6 @@ It has three possible solutions:
 }
 
 
-
 export { miniID, MegaID };
+
+

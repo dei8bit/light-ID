@@ -1,13 +1,16 @@
 {
   "name": "light-id",
   "version": "1.0.3",
+  "author": "dei8bit",
   "type": "module",
   "description": "A simple, fast, and straightforward ID generator",
+  "main": "logic.mjs",
+  "readme":"readme_package.md",
+  "homepage": "https://github.com/dei8bit/light-ID#readme",
   "files": [
     "logic.mjs",
     "package.json"
   ],
-  "main": "logic.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/dei8bit/light-ID"
@@ -27,12 +30,10 @@
     "agile",
     "Tool"
   ],
-  "author": "dei8bit",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dei8bit/light-ID/issues"
   },
-  "homepage": "https://github.com/dei8bit/light-ID#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
